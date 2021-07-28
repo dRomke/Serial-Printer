@@ -24,7 +24,7 @@ while true {
 	
 	switch randomChoice {
 	case 0:
-		// Simulate genuine RFID swipe in 1 out of the 10 cases
+		// Simulate genuine RFID swipe in 1 out of the 4 cases
 		rfidBytes = Data([0x36, 0x39, 0x42, 0x45, 0x42, 0x41, 0x33, 0x44, 0x0D])
 		
 	case 1:
@@ -51,12 +51,12 @@ while true {
 		print("Connection was lost")
 		serialPort.close()
 		serialPort.open()
-		
-		//didEncounterError
-		//serialPort.attemptRecovery(fromError: <#T##Error#>, optionIndex: <#T##Int#>)
 	}
 	
 	// Sleep for random time (in µs, so sometimes very short!)
 	usleep(useconds_t(Int.random(in: 0..<5000000)))
 }
 
+
+//didEncounterError
+//serialPort.attemptRecovery(fromError: <#T##Error#>, optionIndex: <#T##Int#>)
