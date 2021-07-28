@@ -3,11 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		3C64AE9526B1D92F0018CA1B /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C64AE9426B1D92F0018CA1B /* main.swift */; };
+		3C64AE9D26B1D96C0018CA1B /* ORSSerial in Frameworks */ = {isa = PBXBuildFile; productRef = 3C64AE9C26B1D96C0018CA1B /* ORSSerial */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +26,7 @@
 /* Begin PBXFileReference section */
 		3C64AE9126B1D92F0018CA1B /* Serial Printer */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Serial Printer"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C64AE9426B1D92F0018CA1B /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		3C64AE9F26B1D9B30018CA1B /* Serial Printer-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Serial Printer-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +34,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C64AE9D26B1D96C0018CA1B /* ORSSerial in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,6 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				3C64AE9426B1D92F0018CA1B /* main.swift */,
+				3C64AE9F26B1D9B30018CA1B /* Serial Printer-Bridging-Header.h */,
 			);
 			path = "Serial Printer";
 			sourceTree = "<group>";
@@ -78,6 +82,9 @@
 			dependencies = (
 			);
 			name = "Serial Printer";
+			packageProductDependencies = (
+				3C64AE9C26B1D96C0018CA1B /* ORSSerial */,
+			);
 			productName = "Serial Printer";
 			productReference = 3C64AE9126B1D92F0018CA1B /* Serial Printer */;
 			productType = "com.apple.product-type.tool";
@@ -105,6 +112,9 @@
 				Base,
 			);
 			mainGroup = 3C64AE8826B1D92F0018CA1B;
+			packageReferences = (
+				3C64AE9B26B1D96C0018CA1B /* XCRemoteSwiftPackageReference "ORSSerialPort" */,
+			);
 			productRefGroup = 3C64AE9226B1D92F0018CA1B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -246,6 +256,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/$(PROJECT_NAME)/$(PROJECT_NAME)-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -255,6 +266,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/$(PROJECT_NAME)/$(PROJECT_NAME)-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
@@ -281,6 +293,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3C64AE9B26B1D96C0018CA1B /* XCRemoteSwiftPackageReference "ORSSerialPort" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/armadsen/ORSSerialPort.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3C64AE9C26B1D96C0018CA1B /* ORSSerial */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3C64AE9B26B1D96C0018CA1B /* XCRemoteSwiftPackageReference "ORSSerialPort" */;
+			productName = ORSSerial;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3C64AE8926B1D92F0018CA1B /* Project object */;
 }
