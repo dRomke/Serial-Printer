@@ -4,6 +4,7 @@
 //
 //  Created by Romuald Dufaux on 13/07/2021.
 //
+// 	Device sometimes locks up with blue & green LED on. See https://stackoverflow.com/questions/37113612/why-does-an-gnu-io-portinuseexception-pop-up-intermittently-but-never-on-the-fi
 
 import Foundation
 
@@ -43,7 +44,17 @@ while true {
 	
 	// Send it!
 	NSLog("Sending \(rfidBytes as NSData)") // rfidBytes.data(using: String.Encoding.ascii)
-	serialPort.send(rfidBytes)
+	let result = serialPort.send(rfidBytes)
+	
+	// Recover when connection is lost
+	if !result {
+		print("Connection was lost")
+		serialPort.close()
+		serialPort.open()
+		
+		//didEncounterError
+		//serialPort.attemptRecovery(fromError: <#T##Error#>, optionIndex: <#T##Int#>)
+	}
 	
 	// Sleep for random time (in µs, so sometimes very short!)
 	usleep(useconds_t(Int.random(in: 0..<5000000)))
